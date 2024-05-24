@@ -100,7 +100,7 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t x, uint32_t y, float m
 Return<void> BiometricsFingerprint::onFingerUp() {
     setFpPress(0);
     if (!this->isEnrolling) {
-        setDimlayerHbm(0);
+        setDimlayerHbm(1);
     }
     return mOplusBiometricsFingerprint->onFingerUp();
 }
@@ -130,7 +130,7 @@ Return<void> BiometricsFingerprint::onError(uint64_t deviceId, FingerprintError 
                                             int32_t vendorCode) {
     setFpPress(0);
     if (!this->isEnrolling) {
-        setDimlayerHbm(0);
+        setDimlayerHbm(1);
     }
     return mClientCallback->onError(deviceId, error, vendorCode);
 }
