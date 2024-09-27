@@ -18,7 +18,6 @@
 
 #include <aidl/android/hardware/biometrics/fingerprint/BnSession.h>
 #include <aidl/android/hardware/biometrics/fingerprint/ISessionCallback.h>
-#include <aidl/vendor/chen/aidl/syshelper/IUdfpsHelper.h>
 
 #include <android-base/properties.h>
 #include <android-base/logging.h>
@@ -59,7 +58,6 @@ using ::android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint
 
 using namespace ::android::hardware::biometrics::fingerprint;
 
-using aidl::vendor::chen::aidl::syshelper::IUdfpsHelper;
 
 using IOplusBiometricsFingerprint =
     ::vendor::oplus::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint;
@@ -248,7 +246,6 @@ class Session : public BnSession {
     LockoutTracker mLockoutTracker;
 
     sp<IOplusBiometricsFingerprint> mOplusBiometricsFingerprint;
-    std::shared_ptr<IUdfpsHelper> mChenUdfpsHelper;
     sp<V2_1::IBiometricsFingerprintClientCallback> mClientCallback;
 };
 
